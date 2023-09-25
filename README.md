@@ -1,10 +1,5 @@
 # API Fichaje de trabajo
 
-## Requisitos previos
-
-- Docker
-- Docker Compose
-
 ### Para ver una lista de comandos disponibles ejecuta `make help`
 
 ## Endpoints
@@ -19,3 +14,14 @@
 - PUT /work-entry/{id}: Actualizar la fecha de finalización de la entrada de trabajo.
 - DELETE /work-entry/{id}: Eliminar una entrada de trabajo.
 - GET /work-entry/{id}: Obtener una entrada de trabajo por ID.
+
+### Pasos a seguir para iniciar la API
+
+- Ejecutar comando `make start`
+- Entrar al contenedor con `make bash`
+
+#### Dentro del contenedor
+
+- Ejecturar `composer install`
+- Crear la base de datos con el comando `php bin/console doctrine:database:create`
+- Ejectuar migraciones con el comando `php bin/console doctrine:migrations:migrate --no-interaction`
