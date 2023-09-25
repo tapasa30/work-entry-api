@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+    db:
+        image: mariadb:10.7.3
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            TZ: ${TIMEZONE}
+        ports:
+            - "3306:3306"
+    php:
+        build:
+            context: ./php
+        volumes:
+            - ../:/var/www:delegated
+            - /etc/group:/etc/group:ro
+            - /etc/passwd:/etc/passwd:ro
+            - /etc/shadow:/etc/shadow:ro
+            - /home/${USER}:/home/${USER}:delegated
+        depends_on:
+            - db
+    apache:
+        build:
+            context: ./apache
+        volumes:
+            - ../:/var/www/
+        ports:
+            - 80:80
+        depends_on:
+            - php
