@@ -1,0 +1,53 @@
+get_all_users:
+    path: /user
+    methods: GET
+    controller: App\User\Infrastructure\Api\GetAllUsersController
+
+create_user:
+    path: /user
+    methods: POST
+    controller: App\User\Infrastructure\Api\PostUserController
+
+update_user:
+    path: /user/{id}
+    methods: PUT
+    controller: App\User\Infrastructure\Api\PutUserController
+
+delete_user:
+    path: /user/{id}
+    methods: DELETE
+    controller: App\User\Infrastructure\Api\DeleteUserController
+
+get_user:
+    path: /user/{id}
+    methods: GET
+    controller: App\User\Infrastructure\Api\GetUserController
+
+get_users_active_work_entry:
+    path: /work-entry/active
+    methods: GET
+    controller: App\WorkEntry\Infrastructure\Api\GetUserActiveWorkEntryController
+
+create_work_entry:
+    path: /work-entry
+    methods: POST
+    controller: App\WorkEntry\Infrastructure\Api\PostWorkEntryController
+
+update_work_entry:
+    path: /work-entry/{id}
+    methods: PUT
+    controller: App\WorkEntry\Infrastructure\Api\PutWorkEntryController
+
+delete_work_entry:
+    path: /work-entry/{id}
+    methods: DELETE
+    controller: App\WorkEntry\Infrastructure\Api\DeleteWorkEntryController
+
+get_work_entry:
+    path: /work-entry/{id}
+    methods: GET
+    controller: App\WorkEntry\Infrastructure\Api\GetWorkEntryController
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
